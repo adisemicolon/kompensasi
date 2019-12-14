@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 12, 2019 at 02:08 PM
--- Server version: 10.3.17-MariaDB-1
--- PHP Version: 7.2.9-1
+-- Generation Time: Dec 14, 2019 at 01:11 PM
+-- Server version: 10.4.10-MariaDB-1:10.4.10+maria~bionic-log
+-- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cilogin`
+-- Database: `kompensasi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fk`
+--
+
+CREATE TABLE `fk` (
+  `id` int(11) NOT NULL,
+  `nama_mahasiswa` varchar(100) NOT NULL,
+  `nim` int(100) NOT NULL,
+  `nama_matkul` varchar(200) NOT NULL,
+  `nama_dosen` varchar(200) NOT NULL,
+  `pertemuan` int(10) NOT NULL,
+  `gambar` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -39,13 +55,19 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `nama`, `role`) VALUES
-(1, 'madara', 'ed06a360b820d6a9a2bcf218f53b9922', 'uciha madara', 'admin'),
-(2, 'naruto', 'ed06a360b820d6a9a2bcf218f53b9922', 'uzumaki naruto', 'user'),
+(1, 'madara', '9904fd42e4977d5815b5d5679a935ed5', 'uciha madara', 'admin'),
+(2, 'naruto', '9904fd42e4977d5815b5d5679a935ed5', 'uzumaki naruto', 'user'),
 (3, 'sasuke', 'ed06a360b820d6a9a2bcf218f53b9922', 'uciha sasuke', 'prodi');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `fk`
+--
+ALTER TABLE `fk`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -57,6 +79,11 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `fk`
+--
+ALTER TABLE `fk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user`
 --
